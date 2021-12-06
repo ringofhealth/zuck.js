@@ -294,7 +294,9 @@ module.exports = (window => {
                     (option('avatars') || !get(itemData, 'currentPreview'))
                     ? get(itemData, 'photo')
                     : get(itemData, 'currentPreview')
-                  }" />
+                  }"
+                  alt="${get(itemData, 'alt')}"
+                  />
                 </span>
                 <span class="info" itemProp="author" itemScope itemType="http://schema.org/Person">
                   <strong class="name" itemProp="name">${get(itemData, 'name')}</strong>
@@ -307,7 +309,7 @@ module.exports = (window => {
         },
 
         timelineStoryItem (itemData) {
-          const reserved = ['id', 'seen', 'src', 'link', 'linkText', 'time', 'type', 'length', 'preview'];
+          const reserved = ['id', 'seen', 'src', 'link', 'linkText', 'time', 'type', 'length', 'preview', 'alt'];
           let attributes = `
             href="${get(itemData, 'src')}"
             data-link="${get(itemData, 'link')}"
@@ -1461,7 +1463,7 @@ module.exports = (window => {
     return timelineItem;
   };
 
-  ZuckJS.buildStoryItem = (id, type, length, src, preview, link, linkText, seen, time) => {
+  ZuckJS.buildStoryItem = (id, type, length, src, preview, link, linkText, seen, time, alt) => {
     return {
       id,
       type,
@@ -1471,7 +1473,8 @@ module.exports = (window => {
       link,
       linkText,
       seen,
-      time
+      time,
+      alt
     };
   };
 
