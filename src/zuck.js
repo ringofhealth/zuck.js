@@ -49,7 +49,7 @@ module.exports = (window => {
     ];
 
     each(events, (i, val) => {
-      el.addEventListener(val, func, false);
+      el.addEventListener(val, func,  {capture: false, passive:false});
     });
   };
 
@@ -732,12 +732,12 @@ module.exports = (window => {
             delta = {};
 
             if (enableMouseEvents) {
-              modalSlider.addEventListener('mousemove', touchMove);
-              modalSlider.addEventListener('mouseup', touchEnd);
-              modalSlider.addEventListener('mouseleave', touchEnd);
+              modalSlider.addEventListener('mousemove', touchMove, { passive: false });
+              modalSlider.addEventListener('mouseup', touchEnd, { passive: false });
+              modalSlider.addEventListener('mouseleave', touchEnd, { passive: false });
             }
-            modalSlider.addEventListener('touchmove', touchMove);
-            modalSlider.addEventListener('touchend', touchEnd);
+            modalSlider.addEventListener('touchmove', touchMove, { passive: false });
+            modalSlider.addEventListener('touchend', touchEnd, { passive: false });
 
             if (storyViewer) {
               storyViewer.classList.add('paused');
@@ -866,9 +866,9 @@ module.exports = (window => {
           }
         };
 
-        modalSlider.addEventListener('touchstart', touchStart);
+        modalSlider.addEventListener('touchstart', touchStart, { passive: false });
         if (enableMouseEvents) {
-          modalSlider.addEventListener('mousedown', touchStart);
+          modalSlider.addEventListener('mousedown', touchStart, { passive: false });
         }
       };
 
@@ -1173,7 +1173,7 @@ module.exports = (window => {
         };
 
         setDuration();
-        video.addEventListener('loadedmetadata', setDuration);
+        video.addEventListener('loadedmetadata', setDuration, { passive: false });
         zuck.internalData.currentVideoElement = video;
 
         video.play();
@@ -1413,7 +1413,7 @@ module.exports = (window => {
               window.location.hash = '';
             }
           },
-          false
+          {capture: false, passive:false}
         );
       }
 
