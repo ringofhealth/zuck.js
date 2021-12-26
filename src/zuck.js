@@ -290,7 +290,7 @@ module.exports = (window => {
             <div class="story ${get(itemData, 'seen') === true ? 'seen' : ''}">
               <a class="item-link" href="${get(itemData, 'link')}">
                 <span class="item-preview">
-                  <img class="lazyload" src="${
+                  <img lazy="eager" src="${
                     (option('avatars') || !get(itemData, 'currentPreview'))
                     ? get(itemData, 'photo')
                     : get(itemData, 'currentPreview')
@@ -337,7 +337,7 @@ module.exports = (window => {
                         ${option('backButton') ? '<a class="back">&lsaquo;</a>' : ''}
 
                         <span class="item-preview">
-                          <img lazy="eager" class="profilePhoto" src="${get(storyData, 'photo')}" />
+                          <img class="lazyload" class="profilePhoto" src="${get(storyData, 'photo')}" />
                         </span>
 
                         <div class="info">
