@@ -290,7 +290,7 @@ module.exports = (window => {
             <div class="story ${get(itemData, 'seen') === true ? 'seen' : ''}">
               <a class="item-link" href="${get(itemData, 'link')}">
                 <span class="item-preview">
-                  <img lazy="eager" src="${
+                  <img class="lazyload" src="${
                     (option('avatars') || !get(itemData, 'currentPreview'))
                     ? get(itemData, 'photo')
                     : get(itemData, 'currentPreview')
