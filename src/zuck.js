@@ -389,7 +389,7 @@ module.exports = (window => {
 
                     ${
                       get(item, 'link')
-                      ? `<a class="tip link" href="${get(item, 'link')}" rel="noopener" target="_blank">
+                      ? `<a class="tip link" href="${get(item, 'link')}" rel="noopener">
                             ${!get(item, 'linkText') || get(item, 'linkText') === '' ? option('language', 'visitLink') : get(item, 'linkText')}
                           </a>`
                       : ''
